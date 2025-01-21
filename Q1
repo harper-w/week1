@@ -1,0 +1,72 @@
+Welcome to Ubuntu 20.04.6 LTS (GNU/Linux 5.15.0-1074-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of Tue Jan 21 00:17:51 UTC 2025
+
+  System load:  0.0               Processes:             112
+  Usage of /:   58.3% of 9.51GB   Users logged in:       1
+  Memory usage: 8%                IPv4 address for ens4: 10.154.0.2
+  Swap usage:   0%
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+0 updates can be applied immediately.
+
+Enable ESM Apps to receive additional future security updates.
+See https://ubuntu.com/esm or run: sudo pro status
+
+New release '22.04.5 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Tue Jan 21 00:01:44 2025 from 35.235.248.240
+yifan_wang1105@docker-19jan:~$ sudo apt-get update
+Hit:1 http://europe-west2.gce.archive.ubuntu.com/ubuntu focal InRelease
+Hit:2 http://europe-west2.gce.archive.ubuntu.com/ubuntu focal-updates InRelease
+Hit:3 http://europe-west2.gce.archive.ubuntu.com/ubuntu focal-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu focal-security InRelease           
+Reading package lists... Done                        
+yifan_wang1105@docker-19jan:~$ sudo apt-get upgrade -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+yifan_wang1105@docker-19jan:~$ sudo apt-get install docker.io -y
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+docker.io is already the newest version (24.0.7-0ubuntu2~20.04.1).
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+yifan_wang1105@docker-19jan:~$ sudo systemctl start docker
+yifan_wang1105@docker-19jan:~$ sudo systemctl enable docker
+yifan_wang1105@docker-19jan:~$ sudo systemctl enable docker
+yifan_wang1105@docker-19jan:~$ docker --version
+Docker version 24.0.7, build 24.0.7-0ubuntu2~20.04.1
+yifan_wang1105@docker-19jan:~$ sudo docker pull python:3.12.8
+3.12.8: Pulling from library/python
+
+fd0410a2d1ae: Pull complete 
+bf571be90f05: Pull complete 
+684a51896c82: Pull complete 
+fbf93b646d6b: Pull complete 
+5f16749b32ba: Pull complete 
+e00350058e07: Pull complete 
+eb52a57aa542: Pull complete 
+Digest: sha256:5893362478144406ee0771bd9c38081a185077fb317ba71d01b7567678a89708
+Status: Downloaded newer image for python:3.12.8
+docker.io/library/python:3.12.8
+yifan_wang1105@docker-19jan:~$ 
+yifan_wang1105@docker-19jan:~$ sudo docker run -it --entrypoint bash python:3.12.8
+root@523364d6fb48:/# 
+root@523364d6fb48:/# pip --version
+pip 24.3.1 from /usr/local/lib/python3.12/site-packages/pip (python 3.12)
+root@523364d6fb48:/#
